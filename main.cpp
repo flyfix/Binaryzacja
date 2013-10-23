@@ -3,6 +3,8 @@
 
 int main(int argc, char *argv[])
 {
-	QApplication a(argc, argv);
-	return a.exec();
+	QApplication app(argc, argv);
+	Binaryzacja mainWindow = new Binaryzacja();
+	mainWindow.show();
+	return app.exec();
 }

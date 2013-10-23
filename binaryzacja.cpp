@@ -8,5 +8,14 @@ Binaryzacja::Binaryzacja(QWidget *parent)
 
 Binaryzacja::~Binaryzacja()
 {
-
+	
 }
+
+QString Binaryzacja::getFilePath(QString dirPath ,QString fileFilter)
+{
+		QString path = QFileDialog::getOpenFileName(this,"Open File",dirPath,fileFilter);
+		return path;
+}
+
+
+

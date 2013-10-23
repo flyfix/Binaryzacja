@@ -14,7 +14,7 @@
    <string>Binaryzacja</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QGraphicsView" name="imageOld">
+   <widget class="QGraphicsView" name="oldImage">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -24,7 +24,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QGraphicsView" name="imageNew">
+   <widget class="QGraphicsView" name="newImage">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -34,7 +34,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonLoadImg">
+   <widget class="QPushButton" name="loadImgButton">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -47,7 +47,7 @@
      <string>Load BMP Image</string>
     </property>
    </widget>
-   <widget class="QSlider" name="sliderIntensy">
+   <widget class="QSlider" name="intensySlider">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -60,7 +60,7 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEditFilePath">
+   <widget class="QLineEdit" name="filePathLine">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -70,7 +70,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkboxCpp">
+   <widget class="QCheckBox" name="cppCheckBox">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -83,7 +83,7 @@
      <string>C++ Binaryzation</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkboxAsm">
+   <widget class="QCheckBox" name="asmCheckBox">
     <property name="geometry">
      <rect>
       <x>140</x>
@@ -96,7 +96,7 @@
      <string>Assembler Binaryzation</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButtonExecute">
+   <widget class="QPushButton" name="executeButton">
     <property name="geometry">
      <rect>
       <x>10</x>

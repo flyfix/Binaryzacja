@@ -1,7 +1,8 @@
 #ifndef BINARYZACJA_H
 #define BINARYZACJA_H
 
-#include <QtWidgets/QMainWindow>
+
+#include <QtWidgets/QFileDialog>
 #include "ui_binaryzacja.h"
 
 class Binaryzacja : public QMainWindow
@@ -14,6 +15,8 @@ public:
 
 private:
 	Ui::BinaryzacjaClass ui;
+
+	QString getFilePath(QString dirPath = "C:" ,QString fileFilter = ""); 
 };
 
 #endif // BINARYZACJA_H
