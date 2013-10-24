@@ -13,10 +13,19 @@ public:
 	Binaryzacja(QWidget *parent = 0);
 	~Binaryzacja();
 
+public slots:
+	void setOldImg();
+	void setNewImage();
+
+
 private:
 	Ui::BinaryzacjaClass ui;
-
+	QImage * oldImage;
+	QImage * newImage;
 	QString getFilePath(QString dirPath = "C:" ,QString fileFilter = ""); 
+	void setLabelImg(QImage source, QLabel * destination, bool scaleToWidth = true);
+	QImage cppBinaryzation(QImage source , int intense);
+
 };
 
 #endif // BINARYZACJA_H
