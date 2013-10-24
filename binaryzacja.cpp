@@ -8,6 +8,7 @@ Binaryzacja::Binaryzacja(QWidget *parent)
 	oldImage = NULL;
 	connect(ui.loadImgButton,SIGNAL(clicked()),this,SLOT(setOldImg()));
 	connect(ui.executeButton,SIGNAL(clicked()),this,SLOT(setNewImage()));
+	connect(ui.intensySlider,SIGNAL(valueChanged(int)),ui.intensyValue,SLOT(setNum(int)));
 }
 
 Binaryzacja::~Binaryzacja()

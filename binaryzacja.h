@@ -25,6 +25,7 @@ private:
 	QString getFilePath(QString dirPath = "C:" ,QString fileFilter = ""); 
 	void setLabelImg(QImage source, QLabel * destination, bool scaleToWidth = true);
 	QImage cppBinaryzation(QImage source , int intense);
+	QImage asmBinaryzation(QImage source , int intense); //FIXME wrong arguments push to assambler
 
 };
 

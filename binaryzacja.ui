@@ -107,19 +107,23 @@
      </item>
      <item>
       <widget class="QSlider" name="intensySlider">
+       <property name="maximum">
+        <number>255</number>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QLabel" name="intensyValue">
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
-   <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>newImgLabel</zorder>
-   <zorder>newImgLabel</zorder>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
