@@ -3,6 +3,8 @@
 Binaryzacja::Binaryzacja(QWidget *parent)
 	: QMainWindow(parent)
 {
+
+	Debug::print("new Binaryzacja");
 	ui.setupUi(this);
 	newImage = NULL;
 	oldImage = NULL;

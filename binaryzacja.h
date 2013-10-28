@@ -3,6 +3,7 @@
 
 
 #include <QtWidgets/QFileDialog>
+#include "Debug.h"
 #include "ui_binaryzacja.h"
 
 class Binaryzacja : public QMainWindow
