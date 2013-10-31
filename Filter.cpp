@@ -31,3 +31,7 @@ void Filter::cppBinaryzation(QImage * source, int intense) // TODO
 			}
 	}
 }
+
+void Filter::asmBinaryzation(QImage * source, int intense)
+{
+}

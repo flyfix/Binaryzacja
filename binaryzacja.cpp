@@ -38,7 +38,11 @@ void Binaryzacja::setNewImage()
 	if(newImage) // if newImage had existed before
 		delete newImage;
 	newImage = new QImage(oldImage->copy());
-	Filter::cppBinaryzation(newImage, ui.intensySlider->value());
+	if(ui.comboBox->currentText() == "ASM")
+		Filter::asmBinaryzation(newImage,ui.intensySlider->value());
+	else
+		Filter::cppBinaryzation(newImage, ui.intensySlider->value());
+
 	setLabelImg(newImage->copy(), ui.newImgLabel);
 }
 
