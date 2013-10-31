@@ -10,6 +10,7 @@ class Debug
 public:
 	static Debug & getInstance();
 	static void print(QString msg);
+	static void print(int msg);
 	static bool setStatus(bool stat);
 private:
 	Debug() {}

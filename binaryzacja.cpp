@@ -4,7 +4,6 @@ Binaryzacja::Binaryzacja(QWidget *parent)
 	: QMainWindow(parent)
 {
 
-	Debug::print("new Binaryzacja");
 	ui.setupUi(this);
 	newImage = NULL;
 	oldImage = NULL;
@@ -31,21 +30,16 @@ void Binaryzacja::setOldImg()
 	if(oldImage) // if oldImage had existed before
 		delete oldImage;
 	oldImage =  new QImage(ui.filePathLine->text());
-	setLabelImg(*oldImage,ui.oldImgLabel);
+	setLabelImg(oldImage->copy(),ui.oldImgLabel);
 }
 
 void Binaryzacja::setNewImage()
 {
 	if(newImage) // if newImage had existed before
 		delete newImage;
-	newImage = new QImage(cppBinaryzation(*oldImage, ui.intensySlider->value()));
-	setLabelImg(*newImage, ui.newImgLabel);
-}
-
-
-QImage Binaryzacja::cppBinaryzation(QImage source, int intense) // TODO
-{
-	return source.copy();
+	newImage = new QImage(oldImage->copy());
+	Filter::cppBinaryzation(newImage, ui.intensySlider->value());
+	setLabelImg(newImage->copy(), ui.newImgLabel);
 }
 
 void Binaryzacja::setLabelImg(QImage source, QLabel * destination, bool scaleToWidth)

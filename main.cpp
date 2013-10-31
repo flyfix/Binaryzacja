@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-	Debug::setStatus(true); // On console debugging
+	Debug::setStatus(false); // On console debugging
 	QApplication app(argc, argv);
 	Binaryzacja mainWindow = new Binaryzacja();
 	mainWindow.show();

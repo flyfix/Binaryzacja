@@ -3,7 +3,9 @@
 
 
 #include <QtWidgets/QFileDialog>
+#include <QRgb>
 #include "Debug.h"
+#include "Filter.h"
 #include "ui_binaryzacja.h"
 
 class Binaryzacja : public QMainWindow
@@ -15,8 +17,8 @@ public:
 	~Binaryzacja();
 
 public slots:
-	void setOldImg();
-	void setNewImage();
+	void setOldImg(); // Load old image to frame
+	void setNewImage(); // Load new(filtred) image to frame
 
 
 private:
@@ -25,9 +27,6 @@ private:
 	QImage * newImage;
 	QString getFilePath(QString dirPath = "C:" ,QString fileFilter = ""); 
 	void setLabelImg(QImage source, QLabel * destination, bool scaleToWidth = true);
-	QImage cppBinaryzation(QImage source , int intense);
-	QImage asmBinaryzation(QImage source , int intense); //FIXME wrong arguments push to assambler
-
 };
 
 #endif // BINARYZACJA_H

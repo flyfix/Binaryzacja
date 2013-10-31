@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClCompile Include="binaryzacja.cpp" />
     <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="Filter.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_binaryzacja.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -201,6 +202,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Filter.h" />
     <ClInclude Include="GeneratedFiles\ui_binaryzacja.h" />
     <ClInclude Include="Debug.h" />
   </ItemGroup>

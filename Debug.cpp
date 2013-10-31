@@ -14,6 +14,11 @@ void Debug::print(QString msg)
 		qDebug() << msg;
 }
 
+void Debug:: print(int msg)
+{
+	if(status)
+		qDebug() <<msg;
+}
 bool Debug::setStatus(bool stat)
 {
 	status = stat;
