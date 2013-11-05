@@ -1,5 +1,5 @@
-#ifndef BINARYZACJA_H
-#define BINARYZACJA_H
+#ifndef MAIN_WINDOW_H
+#define MAIN_WINDOW_H
 
 
 #include <QtWidgets/QFileDialog>
@@ -8,13 +8,13 @@
 #include "Filter.h"
 #include "ui_binaryzacja.h"
 
-class Binaryzacja : public QMainWindow
+class MainWindow : public QMainWindow
 {
 	Q_OBJECT
 
 public:
-	Binaryzacja(QWidget *parent = 0);
-	~Binaryzacja();
+	MainWindow(QWidget *parent = 0);
+	~MainWindow();
 
 public slots:
 	void setOldImg(); // Load old image to frame

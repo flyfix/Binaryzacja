@@ -1,6 +1,6 @@
-#include "binaryzacja.h"
+#include "MainWindow.h"
 
-Binaryzacja::Binaryzacja(QWidget *parent)
+MainWindow::MainWindow(QWidget *parent)
 	: QMainWindow(parent)
 {
 
@@ -12,19 +12,23 @@ Binaryzacja::Binaryzacja(QWidget *parent)
 	connect(ui.intensySlider,SIGNAL(valueChanged(int)),ui.intensyValue,SLOT(setNum(int)));
 }
 
-Binaryzacja::~Binaryzacja()
+MainWindow::~MainWindow()
 {
 	delete oldImage;
 	delete newImage;
 }
 
-QString Binaryzacja::getFilePath(QString dirPath ,QString fileFilter)
+QString MainWindow::getFilePath(QString dirPath ,QString fileFilter)
 {
 		QString path = QFileDialog::getOpenFileName(this,"Open File",dirPath,fileFilter);
 		return path;
 }
+//QImage MainWindow::LoadQImageFromFile(QString path)
+//{
+//	return new QImage(path);
+//}
 
-void Binaryzacja::setOldImg()
+void MainWindow::setOldImg()
 {
 	ui.filePathLine->setText(getFilePath("C:","*.bmp"));
 	if(oldImage) // if oldImage had existed before
@@ -33,7 +37,7 @@ void Binaryzacja::setOldImg()
 	setLabelImg(oldImage->copy(),ui.oldImgLabel);
 }
 
-void Binaryzacja::setNewImage()
+void MainWindow::setNewImage()
 {
 	if(newImage) // if newImage had existed before
 		delete newImage;
@@ -46,7 +50,7 @@ void Binaryzacja::setNewImage()
 	setLabelImg(newImage->copy(), ui.newImgLabel);
 }
 
-void Binaryzacja::setLabelImg(QImage source, QLabel * destination, bool scaleToWidth)
+void MainWindow::setLabelImg(QImage source, QLabel * destination, bool scaleToWidth)
 {
 		if(scaleToWidth)
 			destination->setPixmap(QPixmap::fromImage(source).scaledToWidth(ui.oldImgLabel->size().width()));
