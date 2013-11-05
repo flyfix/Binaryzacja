@@ -3,6 +3,7 @@
 
 
 #include <QtWidgets/QFileDialog>
+#include <QtWidgets/QLayout>
 #include <QRgb>
 #include "Debug.h"
 #include "Filter.h"
@@ -17,16 +18,17 @@ public:
 	~MainWindow();
 
 public slots:
-	void setOldImg(); // Load old image to frame
-	void setNewImage(); // Load new(filtred) image to frame
+	void loadNormalImage(); // Load old image to frame
+	void binarizeImage(); // Load new(filtered) image to frame
 
 
 private:
 	Ui::BinaryzacjaClass ui;
-	QImage * oldImage;
-	QImage * newImage;
+	QImage * filtredImage;
+	QImage * normalImage;
 	QString getFilePath(QString dirPath = "C:" ,QString fileFilter = ""); 
 	void setLabelImg(QImage source, QLabel * destination, bool scaleToWidth = true);
+	void setEnableLayoutIthems(QLayout * layout, bool enable = true);
 };
 
 #endif // BINARYZACJA_H

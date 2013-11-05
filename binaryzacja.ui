@@ -23,7 +23,7 @@
       <height>251</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
+    <layout class="QHBoxLayout" name="imagesHLayout">
      <item>
       <widget class="QLabel" name="oldImgLabel">
        <property name="text">
@@ -49,7 +49,7 @@
       <height>25</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="loadHLayout">
      <item>
       <widget class="QPushButton" name="loadImgButton">
        <property name="text">
@@ -71,9 +71,12 @@
       <height>25</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <layout class="QHBoxLayout" name="executeHLayout">
      <item>
       <widget class="QPushButton" name="executeButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>Execute</string>
        </property>
@@ -81,6 +84,9 @@
      </item>
      <item>
       <widget class="QSlider" name="intensySlider">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="maximum">
         <number>255</number>
        </property>
@@ -91,6 +97,9 @@
      </item>
      <item>
       <widget class="QLabel" name="intensyValue">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>0</string>
        </property>
@@ -98,7 +107,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -107,7 +116,7 @@
       <height>22</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <layout class="QHBoxLayout" name="methodHLayout">
      <item>
       <widget class="QLabel" name="label">
        <property name="text">

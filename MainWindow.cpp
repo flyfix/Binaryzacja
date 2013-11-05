@@ -5,17 +5,17 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
 	ui.setupUi(this);
-	newImage = NULL;
-	oldImage = NULL;
-	connect(ui.loadImgButton,SIGNAL(clicked()),this,SLOT(setOldImg()));
-	connect(ui.executeButton,SIGNAL(clicked()),this,SLOT(setNewImage()));
+	normalImage = NULL;
+	filtredImage = NULL;
+	connect(ui.loadImgButton,SIGNAL(clicked()),this,SLOT(loadNormalImage()));
+	connect(ui.executeButton,SIGNAL(clicked()),this,SLOT(binarizeImage())); // FIXME
 	connect(ui.intensySlider,SIGNAL(valueChanged(int)),ui.intensyValue,SLOT(setNum(int)));
 }
 
 MainWindow::~MainWindow()
 {
-	delete oldImage;
-	delete newImage;
+	delete filtredImage;
+	delete normalImage;
 }
 
 QString MainWindow::getFilePath(QString dirPath ,QString fileFilter)
@@ -23,31 +23,27 @@ QString MainWindow::getFilePath(QString dirPath ,QString fileFilter)
 		QString path = QFileDialog::getOpenFileName(this,"Open File",dirPath,fileFilter);
 		return path;
 }
-//QImage MainWindow::LoadQImageFromFile(QString path)
-//{
-//	return new QImage(path);
-//}
-
-void MainWindow::setOldImg()
+void MainWindow::loadNormalImage()
 {
-	ui.filePathLine->setText(getFilePath("C:","*.bmp"));
-	if(oldImage) // if oldImage had existed before
-		delete oldImage;
-	oldImage =  new QImage(ui.filePathLine->text());
-	setLabelImg(oldImage->copy(),ui.oldImgLabel);
+	ui.filePathLine->setText(getFilePath("C:"));
+	if(filtredImage) // if oldImage had existed before
+		delete filtredImage;
+	filtredImage =  new QImage(ui.filePathLine->text());
+	setLabelImg(filtredImage->copy(),ui.oldImgLabel);
+	setEnableLayoutIthems(ui.executeHLayout);
 }
 
-void MainWindow::setNewImage()
+void MainWindow::binarizeImage()
 {
-	if(newImage) // if newImage had existed before
-		delete newImage;
-	newImage = new QImage(oldImage->copy());
+	if(normalImage) // if newImage had existed before
+		delete normalImage;
+	normalImage = new QImage(filtredImage->copy());
 	if(ui.comboBox->currentText() == "ASM")
-		Filter::asmBinaryzation(newImage,ui.intensySlider->value());
+		Filter::asmBinaryzation(normalImage,ui.intensySlider->value());
 	else
-		Filter::cppBinaryzation(newImage, ui.intensySlider->value());
+		Filter::cppBinaryzation(normalImage, ui.intensySlider->value());
 
-	setLabelImg(newImage->copy(), ui.newImgLabel);
+	setLabelImg(normalImage->copy(), ui.newImgLabel);
 }
 
 void MainWindow::setLabelImg(QImage source, QLabel * destination, bool scaleToWidth)
@@ -57,6 +53,13 @@ void MainWindow::setLabelImg(QImage source, QLabel * destination, bool scaleToWi
 		else
 			destination->setPixmap(QPixmap::fromImage(source));
 }
+
+void MainWindow::setEnableLayoutIthems(QLayout * layout, bool enable)
+{
 	
+	for(int i = 0 ; i < layout->count() ; i++)
+		layout->itemAt(i)->widget()->setEnabled(enable);
+	
+}
 
 
