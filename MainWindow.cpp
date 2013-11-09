@@ -42,7 +42,7 @@ void MainWindow::binarizeImage(int intensy)
 			delete filtredImage;
 		filtredImage = new QImage(normalImage->copy());
 		if(ui.comboBox->currentText() == "ASM")
-			Filter::asmBinaryzation(filtredImage,intensy);
+			asmBinaryzation(reinterpret_cast<char*>(filtredImage->bits()),intensy);
 		else if(ui.comboBox->currentText() == "C++")
 			Filter::cppBinaryzation(filtredImage,intensy);
 		else

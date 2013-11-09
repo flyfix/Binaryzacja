@@ -51,7 +51,3 @@ void Filter::cppPtrBinaryzation(QImage * source, int intense) // TODO
 				pixelData[i] = pixelData[i+1] = pixelData[i+2] = 255;
 		}
 }
-
-void Filter::asmBinaryzation(QImage * source, int intense)
-{
-}

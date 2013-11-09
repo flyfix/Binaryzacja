@@ -8,6 +8,7 @@
 #include "Debug.h"
 #include "Filter.h"
 #include "ui_binaryzacja.h"
+#include "asm.h"
 
 class MainWindow : public QMainWindow
 {
