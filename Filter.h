@@ -6,6 +6,7 @@ class Filter
 {
 public:
 	static void cppBinaryzation(QImage * source , int intense);
+	static void cppPtrBinaryzation(QImage * source, int intense);
 	static void asmBinaryzation(QImage * source , int intense); //FIXME wrong arguments push to assambler
 private:
 	static void convertToRgb32(QImage * source);

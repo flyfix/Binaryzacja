@@ -73,16 +73,6 @@
     </property>
     <layout class="QHBoxLayout" name="executeHLayout">
      <item>
-      <widget class="QPushButton" name="executeButton">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>Execute</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QSlider" name="intensySlider">
        <property name="enabled">
         <bool>false</bool>
@@ -96,7 +86,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="intensyValue">
+      <widget class="QLabel" name="intensyLabel">
        <property name="enabled">
         <bool>false</bool>
        </property>
@@ -129,6 +119,11 @@
        <item>
         <property name="text">
          <string>C++</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>C++ ptr</string>
         </property>
        </item>
        <item>

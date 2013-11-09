@@ -8,8 +8,8 @@ MainWindow::MainWindow(QWidget *parent)
 	normalImage = NULL;
 	filtredImage = NULL;
 	connect(ui.loadImgButton,SIGNAL(clicked()),this,SLOT(loadNormalImage()));
-	connect(ui.executeButton,SIGNAL(clicked()),this,SLOT(binarizeImage()));
-	connect(ui.intensySlider,SIGNAL(valueChanged(int)),ui.intensyValue,SLOT(setNum(int)));
+	connect(ui.intensySlider,SIGNAL(valueChanged(int)),ui.intensyLabel,SLOT(setNum(int)));
+	connect(ui.intensySlider,SIGNAL(valueChanged(int)),this,SLOT(binarizeImage(int)));
 }
 
 MainWindow::~MainWindow()
@@ -25,7 +25,7 @@ QString MainWindow::getFilePath(QString dirPath ,QString fileFilter)
 }
 void MainWindow::loadNormalImage()
 {
-	ui.filePathLine->setText(getFilePath("C:"));
+	ui.filePathLine->setText(getFilePath("C:/Users/Klaudiusz/Desktop/testImages"));
 	if(normalImage) // if oldImage had existed before
 		delete normalImage;
 	normalImage =  new QImage(ui.filePathLine->text());
@@ -34,7 +34,7 @@ void MainWindow::loadNormalImage()
 	setEnableLayoutIthems(ui.executeHLayout,true);
 }
 
-void MainWindow::binarizeImage()
+void MainWindow::binarizeImage(int intensy)
 {
 	if(normalImage) // if image didn't load function can't binarize
 	{
@@ -42,9 +42,11 @@ void MainWindow::binarizeImage()
 			delete filtredImage;
 		filtredImage = new QImage(normalImage->copy());
 		if(ui.comboBox->currentText() == "ASM")
-			Filter::asmBinaryzation(filtredImage,ui.intensySlider->value());
+			Filter::asmBinaryzation(filtredImage,intensy);
+		else if(ui.comboBox->currentText() == "C++")
+			Filter::cppBinaryzation(filtredImage,intensy);
 		else
-			Filter::cppBinaryzation(filtredImage, ui.intensySlider->value());
+			Filter::cppPtrBinaryzation(filtredImage,intensy);
 
 		setLabelImg(filtredImage->copy(), ui.newImgLabel);
 	}
@@ -65,5 +67,3 @@ void MainWindow::setEnableLayoutIthems(QLayout * layout, bool enable)
 		layout->itemAt(i)->widget()->setEnabled(enable);
 	
 }
-
-

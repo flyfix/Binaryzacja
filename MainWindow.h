@@ -19,7 +19,7 @@ public:
 
 public slots:
 	void loadNormalImage(); // Load old image to frame
-	void binarizeImage(); // Load new(filtered) image to frame
+	void binarizeImage(int intensy); // Load new(filtered) image to frame
 
 
 private:
