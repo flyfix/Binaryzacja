@@ -39,11 +39,12 @@ void Filter::cppPtrBinaryzation(QImage * source, int intense) // TODO
 	int bitsPerPixel = source->bitPlaneCount();
 	int height = source->height();
 	int width = source->width();
+	int imageSizeInBytes = height * width * 4;
 	unsigned char * pixelData = source->bits();
 
 	//24 Bitmap, PNG , JPG ...  pixel have BGRA format
 	if(bitsPerPixel >= 24)
-		for(int i = 0 ; i < height*width * 4 ; i += 4)
+		for(int i = 0 ; i < imageSizeInBytes ; i += 4)
 		{
 			if(intensityValue(pixelData[i+2], pixelData[i+1], pixelData[i]) < intense)
 				pixelData[i] = pixelData[i+1] = pixelData[i+2] = 0;
