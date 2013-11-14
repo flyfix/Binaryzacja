@@ -4,8 +4,8 @@
 
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QLayout>
+#include <QTime>
 #include <QRgb>
-#include "Debug.h"
 #include "Filter.h"
 #include "ui_binaryzacja.h"
 #include "asm.h"
@@ -24,6 +24,7 @@ public slots:
 
 
 private:
+	QTime * timer;
 	Ui::BinaryzacjaClass ui;
 	QImage * filtredImage;
 	QImage * normalImage;

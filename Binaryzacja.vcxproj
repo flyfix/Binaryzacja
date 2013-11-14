@@ -140,7 +140,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MainWindow.cpp" />
-    <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Filter.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_MainWindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -206,7 +205,6 @@
     <ClInclude Include="asm.h" />
     <ClInclude Include="Filter.h" />
     <ClInclude Include="GeneratedFiles\ui_binaryzacja.h" />
-    <ClInclude Include="Debug.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="binaryzacja.qrc">

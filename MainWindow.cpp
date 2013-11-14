@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 	ui.setupUi(this);
 	normalImage = NULL;
 	filtredImage = NULL;
+	timer = new QTime();
 	connect(ui.loadImgButton,SIGNAL(clicked()),this,SLOT(loadNormalImage()));
 	connect(ui.intensySlider,SIGNAL(valueChanged(int)),ui.intensyLabel,SLOT(setNum(int)));
 	connect(ui.intensySlider,SIGNAL(valueChanged(int)),this,SLOT(binarizeImage(int)));
@@ -30,8 +31,18 @@ void MainWindow::loadNormalImage()
 		delete normalImage;
 	normalImage =  new QImage(ui.filePathLine->text());
 	ui.newImgLabel->clear();
-	setLabelImg(normalImage->copy(),ui.oldImgLabel);
-	setEnableLayoutIthems(ui.executeHLayout,true);
+	if(normalImage->bitPlaneCount() < 24)
+	{
+		ui.statusBar->showMessage("Wrong image format. Image should be bmp24 or better" , 3000);
+	}
+	else
+	{
+		setLabelImg(normalImage->copy(),ui.oldImgLabel);
+		setEnableLayoutIthems(ui.executeHLayout,true);
+		ui.statusBar->showMessage("Image load correctly" , 3000);
+	}
+	
+
 }
 
 void MainWindow::binarizeImage(int intensy)
@@ -42,12 +53,22 @@ void MainWindow::binarizeImage(int intensy)
 			delete filtredImage;
 		filtredImage = new QImage(normalImage->copy());
 		if(ui.comboBox->currentText() == "ASM")
+		{
+			timer->start();
 			asmBinaryzation(reinterpret_cast<unsigned char*>(filtredImage->bits()),filtredImage->height()*filtredImage->width(),intensy);
-		else if(ui.comboBox->currentText() == "C++")
-			Filter::cppBinaryzation(filtredImage,intensy);
-		else
-			Filter::cppPtrBinaryzation(filtredImage,intensy);
 
+		}
+		else if(ui.comboBox->currentText() == "C++")
+		{
+			timer->start();
+			Filter::cppBinaryzation(filtredImage,intensy);
+		}
+		else
+		{
+			timer->start();
+			Filter::cppPtrBinaryzation(filtredImage,intensy);;
+		}
+		ui.statusBar->showMessage("Converting takes " + QString::number(timer->elapsed()) + " milliseconds",3000);
 		setLabelImg(filtredImage->copy(), ui.newImgLabel);
 	}
 }

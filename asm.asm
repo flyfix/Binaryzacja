@@ -48,6 +48,7 @@
 			add r9, 4						  ; jump to next pixel
 			dec rdx
 			jnz MainLoop                      ; jump to loop if image not ends
+
 		ret
 	asmBinaryzation endp
 
