@@ -19,17 +19,17 @@
 	
 			mov eax, 0
 			mov al, byte ptr [rcx + r9 + 0];
-			cvtsi2sd xmm0, eax
+			xorps xmm0, xmm2
 			mulsd xmm0, blue                  ; Multiply blue with rate
 
 			mov eax, 0
 			mov al, byte ptr [rcx + r9 + 1];
-			cvtsi2sd xmm1, eax
+			xorps xmm1, xmm1
 			mulsd xmm1, green				  ; Multiply green with rate
 
 			mov eax, 0
 			mov al, byte ptr [rcx + r9 + 2];
-			cvtsi2sd xmm2, eax
+			xorps xmm2, xmm2
 			mulsd xmm2, red                   ; Multiply red with rate
 
 			addsd xmm0, xmm1
