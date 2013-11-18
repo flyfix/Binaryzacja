@@ -17,25 +17,25 @@
 
 		MainLoop:
 	
-			mov eax, 0
+			xor eax, eax
 			mov al, byte ptr [rcx + r9 + 0];
-			xorps xmm0, xmm2
+			cvtsi2sd xmm0, eax
 			mulsd xmm0, blue                  ; Multiply blue with rate
 
-			mov eax, 0
+			xor eax, eax
 			mov al, byte ptr [rcx + r9 + 1];
-			xorps xmm1, xmm1
+			cvtsi2sd xmm1, eax
 			mulsd xmm1, green				  ; Multiply green with rate
 
-			mov eax, 0
+			xor eax, eax
 			mov al, byte ptr [rcx + r9 + 2];
-			xorps xmm2, xmm2
+			cvtsi2sd xmm2, eax
 			mulsd xmm2, red                   ; Multiply red with rate
 
 			addsd xmm0, xmm1
 			addsd xmm0,xmm2					  ; add results of multiples
 			
-			mov ax,0
+			xor ax, ax
 			cvtsi2sd xmm3, r8
 			comisd  xmm0, xmm3                ; compare added result of multiples with intensy rate
 			ja NotAbove
