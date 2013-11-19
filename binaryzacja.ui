@@ -95,6 +95,16 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="autoLevelButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>AutoLevel</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -123,7 +133,7 @@
        </item>
        <item>
         <property name="text">
-         <string>C++ ptr</string>
+         <string>C</string>
         </property>
        </item>
        <item>
@@ -135,11 +145,6 @@
      </item>
     </layout>
    </widget>
-   <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>intensySlider</zorder>
   </widget>
   <widget class="QStatusBar" name="statusBar">
    <property name="layoutDirection">

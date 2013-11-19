@@ -11,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(ui.loadImgButton,SIGNAL(clicked()),this,SLOT(loadNormalImage()));
 	connect(ui.intensySlider,SIGNAL(valueChanged(int)),ui.intensyLabel,SLOT(setNum(int)));
 	connect(ui.intensySlider,SIGNAL(valueChanged(int)),this,SLOT(binarizeImage(int)));
+	connect(ui.autoLevelButton,SIGNAL(clicked()),this,SLOT(autoLevel()));
+
+
 }
 
 MainWindow::~MainWindow()
@@ -55,7 +58,7 @@ void MainWindow::binarizeImage(int intensy)
 		if(ui.comboBox->currentText() == "ASM")
 		{
 			timer->start();
-			asmBinaryzation(reinterpret_cast<unsigned char*>(filtredImage->bits()),filtredImage->height()*filtredImage->width(),intensy);
+			asmBinaryzation(static_cast<unsigned char*>(filtredImage->bits()),filtredImage->height()*filtredImage->width(),intensy);
 
 		}
 		else if(ui.comboBox->currentText() == "C++")
@@ -66,9 +69,37 @@ void MainWindow::binarizeImage(int intensy)
 		else
 		{
 			timer->start();
-			Filter::cppPtrBinaryzation(filtredImage,intensy);;
+			Filter::cBinaryzation(filtredImage,intensy);;
 		}
 		ui.statusBar->showMessage("Converting takes " + QString::number(timer->elapsed()) + " milliseconds",3000);
+		setLabelImg(filtredImage->copy(), ui.newImgLabel);
+	}
+}
+
+void MainWindow::autoLevel()
+{
+	if(normalImage) // if image didn't load function can't binarize
+	{
+		int avgLuminanceLevel;
+
+		if(ui.comboBox->currentText() == "ASM")
+		{
+			timer->start();
+			avgLuminanceLevel = asmAvgLum(filtredImage->bits(), filtredImage->height()*filtredImage->width());
+
+		}
+		else if(ui.comboBox->currentText() == "C++")
+		{
+			timer->start();
+			avgLuminanceLevel = Filter::cppAvgLum(normalImage);
+		}
+		else
+		{
+			timer->start();
+			avgLuminanceLevel = Filter::cAvgLum(normalImage);
+		}
+		ui.statusBar->showMessage("Computing auto level takes " + QString::number(timer->elapsed()) + " milliseconds",3000);
+		ui.intensySlider->setValue(avgLuminanceLevel);
 		setLabelImg(filtredImage->copy(), ui.newImgLabel);
 	}
 }

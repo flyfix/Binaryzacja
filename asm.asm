@@ -13,7 +13,7 @@
 
 	asmBinaryzation proc
 		
-		mov r9, 0  ; set   image offset pointer to 0
+		xor r9, r9  ; set   image offset pointer to 0
 
 		MainLoop:
 	
@@ -51,5 +51,47 @@
 
 		ret
 	asmBinaryzation endp
+
+	;double asmAvgLum(unsigned char * img ,int size);
+	;RCX - img
+	;RDX - size(how many pixel consist of)
+
+	asmAvgLum proc
+
+		xor r8, r8  ; set   image offset pointer to 0
+		xorpd xmm3, xmm3 ; set avg lum to 0
+
+		MainLoop:
+	
+			xor eax, eax
+			mov al, byte ptr [rcx + r8 + 0];
+			cvtsi2sd xmm0, eax
+			mulsd xmm0, blue                  ; Multiply blue with rate
+
+			xor eax, eax
+			mov al, byte ptr [rcx + r8 + 1];
+			cvtsi2sd xmm1, eax
+			mulsd xmm1, green				  ; Multiply green with rate
+
+			xor eax, eax
+			mov al, byte ptr [rcx + r8 + 2];
+			cvtsi2sd xmm2, eax
+			mulsd xmm2, red                   ; Multiply red with rate
+
+			addsd xmm0, xmm1
+			addsd xmm0,xmm2					  ;compute luminance of pixel
+			
+			addsd xmm3, xmm0                  ;sum luminance of picture
+
+			add r9, 4						  ; jump to next pixel
+			dec rdx
+			jnz MainLoop                      ; jump to loop if image not ends
+
+			cvtsi2sd xmm4, rdx
+			divsd xmm3,xmm4
+			cvtsd2si rax,xmm3
+		
+		ret
+	asmAvgLum endp
 
 end

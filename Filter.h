@@ -6,10 +6,15 @@ class Filter
 {
 public:
 	static void cppBinaryzation(QImage * source , int intense);
-	static void cppPtrBinaryzation(QImage * source, int intense);
+	static void cBinaryzation(QImage * source, int intense);
+	static double cppAvgLum(QImage * source);
+	static double cAvgLum(QImage * source);
+	
 private:
 	static void convertToRgb32(QImage * source);
-	static int intensityValue(int r, int g, int b);
+	static double intensityValue(int r, int g, int b);
+
+
 };
 
 
