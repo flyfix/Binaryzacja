@@ -17,10 +17,10 @@ class MainWindow : public QMainWindow
 public:
 	MainWindow(QWidget *parent = 0);
 	~MainWindow();
-public slots:
-	void loadNormalImage(); // Load old image to frame
-	void binarizeImage(int intensy); // Load new(filtered) image to frame
-	void autoLevel(); // Load new(filtered) image to frame
+	public slots:
+		void loadNormalImage(); // Load old image to frame
+		void binarizeImage(int intensy); // Load new(filtered) image to frame
+		void autoLevel(); // Load new(filtered) image to frame
 
 
 private:

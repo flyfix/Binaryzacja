@@ -24,12 +24,12 @@
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
     <Filter Include="Generated Files\Debug">
-      <UniqueIdentifier>{e2f757dd-9afd-4930-9193-e4c5afbce55c}</UniqueIdentifier>
+      <UniqueIdentifier>{e8459637-1082-4e10-9187-f3fdc0a38b32}</UniqueIdentifier>
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
     <Filter Include="Generated Files\Release">
-      <UniqueIdentifier>{2d8d6b24-404f-46c2-9426-a36104760fa6}</UniqueIdentifier>
+      <UniqueIdentifier>{50446486-c2dd-461e-9f9b-7fa9e3d6359c}</UniqueIdentifier>
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
@@ -41,6 +41,9 @@
     <ClCompile Include="GeneratedFiles\qrc_binaryzacja.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Filter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -49,9 +52,6 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_MainWindow.cpp">
       <Filter>Generated Files\Release</Filter>
-    </ClCompile>
-    <ClCompile Include="MainWindow.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

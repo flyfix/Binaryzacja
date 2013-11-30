@@ -1,160 +1,160 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ui version="4.0">
- <class>BinaryzacjaClass</class>
- <widget class="QMainWindow" name="BinaryzacjaClass">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>777</width>
-    <height>379</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Binaryzacja</string>
-  </property>
-  <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="layoutWidget">
+  <class>BinaryzacjaClass</class>
+  <widget class="QMainWindow" name="BinaryzacjaClass">
     <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>751</width>
-      <height>251</height>
-     </rect>
+      <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>777</width>
+        <height>379</height>
+      </rect>
     </property>
-    <layout class="QHBoxLayout" name="imagesHLayout">
-     <item>
-      <widget class="QLabel" name="oldImgLabel">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="newImgLabel">
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>270</y>
-      <width>321</width>
-      <height>25</height>
-     </rect>
+    <property name="windowTitle">
+      <string>Binaryzacja</string>
     </property>
-    <layout class="QHBoxLayout" name="loadHLayout">
-     <item>
-      <widget class="QPushButton" name="loadImgButton">
-       <property name="text">
-        <string>Load BMP Image</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="filePathLine"/>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>330</y>
-      <width>321</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="executeHLayout">
-     <item>
-      <widget class="QSlider" name="intensySlider">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="maximum">
-        <number>255</number>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="intensyLabel">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>0</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="autoLevelButton">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>AutoLevel</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>300</y>
-      <width>321</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="methodHLayout">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Method</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QComboBox" name="comboBox">
-       <item>
-        <property name="text">
-         <string>C++</string>
+    <widget class="QWidget" name="centralWidget">
+      <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+          <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>751</width>
+            <height>251</height>
+          </rect>
         </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>C</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>ASM</string>
-        </property>
-       </item>
+        <layout class="QHBoxLayout" name="imagesHLayout">
+          <item>
+            <widget class="QLabel" name="oldImgLabel">
+              <property name="text">
+                <string/>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QLabel" name="newImgLabel">
+              <property name="text">
+                <string/>
+              </property>
+            </widget>
+          </item>
+        </layout>
       </widget>
-     </item>
-    </layout>
-   </widget>
+      <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+          <rect>
+            <x>10</x>
+            <y>270</y>
+            <width>321</width>
+            <height>25</height>
+          </rect>
+        </property>
+        <layout class="QHBoxLayout" name="loadHLayout">
+          <item>
+            <widget class="QPushButton" name="loadImgButton">
+              <property name="text">
+                <string>Load BMP Image</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QLineEdit" name="filePathLine"/>
+          </item>
+        </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+          <rect>
+            <x>10</x>
+            <y>330</y>
+            <width>321</width>
+            <height>25</height>
+          </rect>
+        </property>
+        <layout class="QHBoxLayout" name="executeHLayout">
+          <item>
+            <widget class="QSlider" name="intensySlider">
+              <property name="enabled">
+                <bool>false</bool>
+              </property>
+              <property name="maximum">
+                <number>255</number>
+              </property>
+              <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QLabel" name="intensyLabel">
+              <property name="enabled">
+                <bool>false</bool>
+              </property>
+              <property name="text">
+                <string>0</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QPushButton" name="autoLevelButton">
+              <property name="enabled">
+                <bool>false</bool>
+              </property>
+              <property name="text">
+                <string>AutoLevel</string>
+              </property>
+            </widget>
+          </item>
+        </layout>
+      </widget>
+      <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+          <rect>
+            <x>10</x>
+            <y>300</y>
+            <width>321</width>
+            <height>22</height>
+          </rect>
+        </property>
+        <layout class="QHBoxLayout" name="methodHLayout">
+          <item>
+            <widget class="QLabel" name="label">
+              <property name="text">
+                <string>Method</string>
+              </property>
+            </widget>
+          </item>
+          <item>
+            <widget class="QComboBox" name="comboBox">
+              <item>
+                <property name="text">
+                  <string>C++</string>
+                </property>
+              </item>
+              <item>
+                <property name="text">
+                  <string>C</string>
+                </property>
+              </item>
+              <item>
+                <property name="text">
+                  <string>ASM</string>
+                </property>
+              </item>
+            </widget>
+          </item>
+        </layout>
+      </widget>
+    </widget>
+    <widget class="QStatusBar" name="statusBar">
+      <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+      </property>
+    </widget>
   </widget>
-  <widget class="QStatusBar" name="statusBar">
-   <property name="layoutDirection">
-    <enum>Qt::LeftToRight</enum>
-   </property>
-  </widget>
- </widget>
- <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="binaryzacja.qrc"/>
- </resources>
- <connections/>
+  <layoutdefault spacing="6" margin="11"/>
+  <resources>
+    <include location="binaryzacja.qrc"/>
+  </resources>
+  <connections/>
 </ui>

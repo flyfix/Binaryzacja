@@ -24,8 +24,8 @@ MainWindow::~MainWindow()
 
 QString MainWindow::getFilePath(QString dirPath ,QString fileFilter)
 {
-		QString path = QFileDialog::getOpenFileName(this,"Open File",dirPath,fileFilter);
-		return path;
+	QString path = QFileDialog::getOpenFileName(this,"Open File",dirPath,fileFilter);
+	return path;
 }
 void MainWindow::loadNormalImage()
 {
@@ -44,7 +44,7 @@ void MainWindow::loadNormalImage()
 		setEnableLayoutIthems(ui.executeHLayout,true);
 		ui.statusBar->showMessage("Image load correctly" , 3000);
 	}
-	
+
 
 }
 
@@ -82,7 +82,7 @@ void MainWindow::autoLevel()
 	{
 		int avgLuminanceLevel;
 
-		if(ui.comboBox->currentText() == "ASM")
+	    if(ui.comboBox->currentText() == "ASM")
 		{
 			timer->start();
 			avgLuminanceLevel = asmAvgLum(filtredImage->bits(), filtredImage->height()*filtredImage->width());
@@ -106,16 +106,16 @@ void MainWindow::autoLevel()
 
 void MainWindow::setLabelImg(QImage source, QLabel * destination, bool scaleToWidth)
 {
-		if(scaleToWidth)
-			destination->setPixmap(QPixmap::fromImage(source).scaledToWidth(ui.oldImgLabel->size().width()));
-		else
-			destination->setPixmap(QPixmap::fromImage(source));
+	if(scaleToWidth)
+		destination->setPixmap(QPixmap::fromImage(source).scaledToWidth(ui.oldImgLabel->size().width()));
+	else
+		destination->setPixmap(QPixmap::fromImage(source));
 }
 
 void MainWindow::setEnableLayoutIthems(QLayout * layout, bool enable)
 {
-	
+
 	for(int i = 0 ; i < layout->count() ; i++)
 		layout->itemAt(i)->widget()->setEnabled(enable);
-	
+
 }

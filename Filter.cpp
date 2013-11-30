@@ -3,7 +3,7 @@
 
 double Filter::intensityValue(int r, int g, int b)
 {
-    return 0.299*r + 0.587*g + 0.1140000000000001*b;
+	return 0.299*r + 0.587*g + 0.1140000000000001*b;
 }
 
 double Filter::cAvgLum(QImage * source)
@@ -34,7 +34,7 @@ double Filter::cppAvgLum(QImage * source)
 			QPoint p(x,y);
 			color.setRgb(source->pixel(p));
 			totalLuminance = intensityValue(color.red(), color.green(), color.blue());
-			
+
 		}
 	}
 
@@ -64,7 +64,7 @@ void Filter::cppBinaryzation(QImage * source, int intense)
 				color.setBlue(255);
 			}
 			source->setPixel(p,color.rgb());
-			}
+		}
 	}
 }
 

@@ -9,7 +9,7 @@ public:
 	static void cBinaryzation(QImage * source, int intense);
 	static double cppAvgLum(QImage * source);
 	static double cAvgLum(QImage * source);
-	
+
 private:
 	static void convertToRgb32(QImage * source);
 	static double intensityValue(int r, int g, int b);
