@@ -85,7 +85,7 @@ void MainWindow::autoLevel()
 	    if(ui.comboBox->currentText() == "ASM")
 		{
 			timer->start();
-			avgLuminanceLevel = asmAvgLum(filtredImage->bits(), filtredImage->height()*filtredImage->width());
+			avgLuminanceLevel =  asmAvgLum(normalImage->bits(), normalImage->height()*normalImage->width())/4;
 
 		}
 		else if(ui.comboBox->currentText() == "C++")

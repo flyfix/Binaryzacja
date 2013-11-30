@@ -58,23 +58,23 @@
 
 	asmAvgLum proc
 
-		xor r8, r8  ; set   image offset pointer to 0
+		xor r9, r9  ; set   image offset pointer to 0
 		xorpd xmm3, xmm3 ; set avg lum to 0
-
+		cvtsi2sd xmm4, rdx  ; copy size of image
 		MainLoop:
 	
 			xor eax, eax
-			mov al, byte ptr [rcx + r8 + 0];
+			mov al, byte ptr [rcx + r9 + 0];
 			cvtsi2sd xmm0, eax
 			mulsd xmm0, blue                  ; Multiply blue with rate
 
 			xor eax, eax
-			mov al, byte ptr [rcx + r8 + 1];
+			mov al, byte ptr [rcx + r9 + 1];
 			cvtsi2sd xmm1, eax
 			mulsd xmm1, green				  ; Multiply green with rate
 
 			xor eax, eax
-			mov al, byte ptr [rcx + r8 + 2];
+			mov al, byte ptr [rcx + r9 + 2];
 			cvtsi2sd xmm2, eax
 			mulsd xmm2, red                   ; Multiply red with rate
 
@@ -87,7 +87,7 @@
 			dec rdx
 			jnz MainLoop                      ; jump to loop if image not ends
 
-			cvtsi2sd xmm4, rdx
+
 			divsd xmm3,xmm4
 			cvtsd2si rax,xmm3
 		

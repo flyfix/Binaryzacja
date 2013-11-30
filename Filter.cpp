@@ -33,7 +33,7 @@ double Filter::cppAvgLum(QImage * source)
 		{
 			QPoint p(x,y);
 			color.setRgb(source->pixel(p));
-			totalLuminance = intensityValue(color.red(), color.green(), color.blue());
+			totalLuminance += intensityValue(color.red(), color.green(), color.blue());
 
 		}
 	}

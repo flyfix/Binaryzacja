@@ -2,6 +2,6 @@
 #define ASM_H_
 
 extern "C" void asmBinaryzation(unsigned char * img ,int size, int intensy);
-extern "C" double asmAvgLum(unsigned char * img ,int size);
+extern "C" int asmAvgLum(unsigned char * img ,int size);
 
 #endif
